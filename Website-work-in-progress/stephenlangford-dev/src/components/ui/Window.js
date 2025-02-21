@@ -4,7 +4,7 @@ import ProfileSection from './ProfileSection';
 import profileData from '@/data/profileData';
 import WindowButton from './WindowButton';
 
-const Window = ({ section, onClose }) => {
+const Window = ({ section, onClose, onHelp }) => {
     const windowHeader = profileData[section].title;
 
     return (
@@ -15,7 +15,12 @@ const Window = ({ section, onClose }) => {
                         {windowHeader}
                     </span>
                     <span className="window-button-wrapper pr-1 flex gap-1">
-                        <WindowButton iconRef="/icons/question-icon.png" />
+                        {section !== 'contact' && (
+                            <WindowButton
+                                iconRef="/icons/question-icon.png"
+                                onClick={onHelp}
+                            />
+                        )}
                         <WindowButton
                             iconRef="/icons/close-icon.png"
                             onClick={onClose}

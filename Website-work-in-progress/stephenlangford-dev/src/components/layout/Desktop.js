@@ -15,7 +15,7 @@ const Desktop = () => {
     return (
         <div className="relative h-screen w-screen">
             {/* Shortcut Container - Uses Grid for Alignment */}
-            <div className="shortcut-container grid grid-cols-1 gap-4 p-4 z-10 relative">
+            <div className="shortcut-container grid grid-cols-1 gap-4 p-4 z-10 justify-end absolute right-0">
                 <Shortcut
                     iconRef="/icons/notepad-5.png"
                     shortcutText="Summary"
@@ -53,36 +53,42 @@ const Desktop = () => {
                     <Window
                         section="summary"
                         onClose={() => setDisplaySummary(false)}
+                        onHelp={() => setDisplayContact(true)}
                     />
                 )}
                 {displayTechSkills && (
                     <Window
                         section="techSkills"
                         onClose={() => setDisplayTechSkills(false)}
+                        onHelp={() => setDisplayContact(true)}
                     />
                 )}
                 {displayExperience && (
                     <Window
                         section="experience"
                         onClose={() => setDisplayExperience(false)}
+                        onHelp={() => setDisplayContact(true)}
                     />
                 )}
                 {displayProjects && (
                     <Window
                         section="projects"
                         onClose={() => setDisplayProjects(false)}
+                        onHelp={() => setDisplayContact(true)}
                     />
                 )}
                 {displayEducation && (
                     <Window
                         section="education"
                         onClose={() => setDisplayEducation(false)}
+                        onHelp={() => setDisplayContact(true)}
                     />
                 )}
                 {displayContact && (
                     <Window
                         section="contact"
                         onClose={() => setDisplayContact(false)}
+                        onHelp={() => setDisplayContact(true)}
                     />
                 )}
             </div>
