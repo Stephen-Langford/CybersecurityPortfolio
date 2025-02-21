@@ -1,5 +1,6 @@
 import React from 'react';
 import profileData from '@/data/profileData';
+import Image from 'next/image';
 
 const ProfileSection = ({ section }) => {
     const data = profileData[section]; // Get the requested section dynamically
@@ -32,7 +33,29 @@ const ProfileSection = ({ section }) => {
                 </div>
             )}
 
-            {section === 'summary' && <p>{data.description}</p>}
+            {section === 'summary' && (
+                <div>
+                    <div className="flex justify-center overflow-hidden">
+                        <Image
+                            src="/images/headshot2025.jpg"
+                            alt="Profile Headshot"
+                            width={200}
+                            height={200}
+                            className="headshot-pic rounded-full
+                         border-2 border-gray-600 shadow-lg mb-2"
+                        />
+                    </div>
+                    <h3 className="text-lg font-semibold pb-3">
+                        <a
+                            href={data.linkedIn}
+                            className="text-blue-400 hover:underline"
+                        >
+                            LinkedIn
+                        </a>
+                    </h3>
+                    <p>{data.description}</p>
+                </div>
+            )}
 
             {section === 'experience' && (
                 <div>
@@ -59,6 +82,14 @@ const ProfileSection = ({ section }) => {
 
             {section === 'projects' && (
                 <div>
+                    <h3 className="text-lg font-semibold pb-3">
+                        <a
+                            href={data.github}
+                            className="text-blue-400 hover:underline"
+                        >
+                            GitHub Portfolio
+                        </a>
+                    </h3>
                     {data.list.map((project, index) => (
                         <div
                             key={index}
@@ -88,6 +119,38 @@ const ProfileSection = ({ section }) => {
                             <li key={i}>{highlight}</li>
                         ))}
                     </ul>
+                </div>
+            )}
+            {section === 'contact' && (
+                <div>
+                    <h3 className="text-lg font-semibold pb-3">
+                        Phone: {data.phone}
+                    </h3>
+                    <h3 className="text-lg font-semibold pb-3">
+                        Email:
+                        <a
+                            href="mailto:slangford1050@gmail.com"
+                            className="text-blue-400 hover:underline pl-1"
+                        >
+                            slangford1050@gmail.com
+                        </a>
+                    </h3>
+                    <h3 className="text-lg font-semibold pb-3">
+                        <a
+                            href={data.linkedIn}
+                            className="text-blue-400 hover:underline pl-1"
+                        >
+                            LinkedIn
+                        </a>
+                    </h3>
+                    <h3 className="text-lg font-semibold pb-3">
+                        <a
+                            href={data.github}
+                            className="text-blue-400 hover:underline"
+                        >
+                            GitHub Portfolio
+                        </a>
+                    </h3>
                 </div>
             )}
         </div>

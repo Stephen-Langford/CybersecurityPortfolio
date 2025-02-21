@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 const Shortcut = ({
@@ -22,12 +21,12 @@ const Shortcut = ({
 
     return (
         <button
-            className="flex flex-col items-center"
+            className="flex flex-col items-center w-20 h-20 p-2  text-white text-sm "
             onClick={handleClick}
-            disabled={isDisabled} // Optional: Disable button visually
+            disabled={isDisabled}
         >
             <Image src={iconRef} height={32} width={32} alt="Shortcut" />
-            <span className="font-normal">{shortcutText}</span>
+            <span className="mt-1 text-center  w-full">{shortcutText}</span>
         </button>
     );
 };

@@ -1,6 +1,7 @@
 const profileData = {
     summary: {
         title: 'Professional Summary',
+        linkedIn: 'https://www.linkedin.com/in/s-langford/',
         description:
             'Cybersecurity Specialist with a strong foundation in security operations, threat analysis, and secure software development. Holds a B.S. in Computer Science with a Minor in Statistics & Mathematics from Georgia State University. Experienced in security monitoring, incident response, vulnerability assessment, and secure coding practices. Skilled in Python, SIEM tools, threat intelligence, and scripting. Passionate about strengthening system defenses, mitigating cyber threats, and improving security posture through proactive monitoring and risk assessment. Founded and led the official GSU Cybersecurity Club.',
     },
@@ -89,6 +90,7 @@ const profileData = {
 
     projects: {
         title: 'Projects',
+        github: 'https://github.com/Stephen-Langford/CybersecurityPortfolio',
         list: [
             {
                 name: 'Distributed Cluster Computing (Big Data Processing)',
@@ -124,6 +126,13 @@ const profileData = {
             'Collaborated with Google Engineers to refine secure coding and penetration testing skills.',
             'Relevant Coursework: Cybersecurity, Ethical Hacking, Network Security, Cryptography, Digital Forensics.',
         ],
+    },
+    contact: {
+        title: 'Contact Information',
+        phone: '770-402-0461',
+        email: 'slangford1050@gmail.com',
+        linkedIn: 'https://www.linkedin.com/in/s-langford/',
+        github: 'https://github.com/Stephen-Langford/CybersecurityPortfolio',
     },
 };
 

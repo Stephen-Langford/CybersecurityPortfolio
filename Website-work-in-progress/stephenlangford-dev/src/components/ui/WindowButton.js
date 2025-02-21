@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import clsx from 'clsx';
 
-const WindowButton = ({ iconRef = '/icons/close-icon.png' }) => {
+const WindowButton = ({ iconRef = '/icons/close-icon.png', onClick }) => {
     const [borderColorTL, setBorderColorTL] = useState('gray-300');
     const [borderColorRB, setBorderColorRB] = useState('gray-700');
 
@@ -19,7 +19,7 @@ const WindowButton = ({ iconRef = '/icons/close-icon.png' }) => {
     return (
         <button
             className={clsx(
-                'window-button float-right bg-menu-gray z-20 border-2 active:translate-y-px active:scale-95',
+                'window-button float-right bg-menu-gray border-2 active:translate-y-px active:scale-95',
                 {
                     'border-t-gray-300 border-l-gray-300':
                         borderColorTL === 'gray-300',
@@ -33,6 +33,7 @@ const WindowButton = ({ iconRef = '/icons/close-icon.png' }) => {
             )}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
+            onClick={onClick}
         >
             <Image src={iconRef} width={10} height={11} alt="Window Button" />
         </button>
