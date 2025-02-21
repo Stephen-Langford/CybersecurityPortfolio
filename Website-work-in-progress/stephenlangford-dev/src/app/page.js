@@ -5,7 +5,7 @@ import MenuBar from '@/components/layout/MenuBar';
 export default function Home() {
     return (
         <>
-            <div>
+            <div className="leading-normal tracking-tight text-s">
                 <Desktop />
                 <MenuBar />
             </div>
