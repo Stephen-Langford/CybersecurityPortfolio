@@ -9,7 +9,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                vt323: ['VT323', 'monospace'],
+                fontFamily: {
+                    sans: ['Arial', 'sans-serif'],
+                },
             },
             colors: {
                 background: 'var(--background)',
@@ -20,6 +22,7 @@ export default {
                 'window-background': '#c6c6c6',
                 'window-border-light': '#efefef',
                 'window-border-dark': '#000',
+                'window-top-blue': '#050080',
             },
             padding: {
                 '3px': '3px',

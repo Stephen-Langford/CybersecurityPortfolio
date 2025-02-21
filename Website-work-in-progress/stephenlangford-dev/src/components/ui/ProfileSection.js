@@ -1,20 +1,24 @@
 import React from 'react';
-import Card from './Card';
-import profileData from '@/data/profileData'; // Import the structured data
+import profileData from '@/data/profileData';
 
-const ProfileCards = () => {
+const ProfileSection = ({ section }) => {
+    const data = profileData[section]; // Get the requested section dynamically
+
+    if (!data) {
+        return <p className="text-red-500">Invalid section: {section}</p>;
+    }
+
     return (
-        <div className="p-6 bg-gray-900 text-white min-h-screen">
-            <div className="max-w-4xl mx-auto space-y-6">
-                {/* Professional Summary Card */}
-                <Card title={profileData.summary.title}>
-                    <p>{profileData.summary.description}</p>
-                </Card>
+        <div className="p-6 bg-gray-800 text-white rounded-lg shadow-lg max-w-3xl mx-auto">
+            <h2 className="text-xl font-bold border-b border-gray-600 pb-2 mb-4">
+                {data.title}
+            </h2>
 
-                {/* Technical Skills Card */}
-                <Card title={profileData.techSkills.title}>
-                    {profileData.techSkills.skills.map((skill, index) => (
-                        <div key={index} className="mb-2">
+            {/* Handle different sections dynamically */}
+            {section === 'techSkills' && (
+                <div>
+                    {data.skills.map((skill, index) => (
+                        <div key={index} className="mb-4">
                             <h3 className="text-lg font-semibold">
                                 {skill.category}
                             </h3>
@@ -25,11 +29,14 @@ const ProfileCards = () => {
                             </ul>
                         </div>
                     ))}
-                </Card>
+                </div>
+            )}
 
-                {/* Work Experience Card */}
-                <Card title={profileData.experience.title}>
-                    {profileData.experience.jobs.map((job, index) => (
+            {section === 'summary' && <p>{data.description}</p>}
+
+            {section === 'experience' && (
+                <div>
+                    {data.jobs.map((job, index) => (
                         <div
                             key={index}
                             className="mb-4 border-b border-gray-700 pb-4"
@@ -47,11 +54,12 @@ const ProfileCards = () => {
                             </ul>
                         </div>
                     ))}
-                </Card>
+                </div>
+            )}
 
-                {/* Projects Card */}
-                <Card title={profileData.projects.title}>
-                    {profileData.projects.list.map((project, index) => (
+            {section === 'projects' && (
+                <div>
+                    {data.list.map((project, index) => (
                         <div
                             key={index}
                             className="mb-4 border-b border-gray-700 pb-4"
@@ -66,28 +74,24 @@ const ProfileCards = () => {
                             </ul>
                         </div>
                     ))}
-                </Card>
+                </div>
+            )}
 
-                {/* Education Card */}
-                <Card title={profileData.education.title}>
-                    <h3 className="text-lg font-semibold">
-                        {profileData.education.degree}
-                    </h3>
+            {section === 'education' && (
+                <div>
+                    <h3 className="text-lg font-semibold">{data.degree}</h3>
                     <p className="text-gray-400">
-                        {profileData.education.school} |{' '}
-                        {profileData.education.graduation}
+                        {data.school} | {data.graduation}
                     </p>
                     <ul className="list-disc list-inside text-gray-300">
-                        {profileData.education.highlights.map(
-                            (highlight, i) => (
-                                <li key={i}>{highlight}</li>
-                            )
-                        )}
+                        {data.highlights.map((highlight, i) => (
+                            <li key={i}>{highlight}</li>
+                        ))}
                     </ul>
-                </Card>
-            </div>
+                </div>
+            )}
         </div>
     );
 };
 
-export default ProfileCards;
+export default ProfileSection;
