@@ -13,6 +13,9 @@ export default {
                     sans: ['Arial', 'sans-serif'],
                 },
             },
+            fontSize: {
+                '12px': '12px',
+            },
             colors: {
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',
@@ -21,7 +24,7 @@ export default {
                 'menu-bottom': '#4e4e4e',
                 'window-background': '#c6c6c6',
                 'window-border-light': '#efefef',
-                'window-border-dark': '#000',
+                'button-border-dark': '#404040',
                 'window-top-blue': '#050080',
             },
             padding: {

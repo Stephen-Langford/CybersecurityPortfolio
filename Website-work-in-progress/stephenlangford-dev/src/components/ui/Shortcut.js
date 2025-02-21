@@ -1,23 +1,34 @@
 import React from 'react';
-import Window from './Window';
+import { useState } from 'react';
 import Image from 'next/image';
 
 const Shortcut = ({
     iconRef = '/icons/directory_closed-4.png',
-    profileSection = 'summary',
+    shortcutText = 'placeholder',
+    onClick,
 }) => {
-    const openWindow = (profileSection) => {};
+    const [isDisabled, setIsDisabled] = useState(false);
+
+    const handleClick = () => {
+        if (isDisabled) return; // Prevent rapid clicking
+        setIsDisabled(true); // Disable further clicks temporarily
+
+        onClick(); // Call the original click function
+
+        setTimeout(() => {
+            setIsDisabled(false); // Re-enable clicking after delay
+        }, 500); // Adjust delay as needed
+    };
 
     return (
-        <div>
-            <Image
-                ref={iconRef}
-                onClick={openWindow}
-                height={32}
-                width={32}
-                alt="Shortcut"
-            />
-        </div>
+        <button
+            className="flex flex-col items-center"
+            onClick={handleClick}
+            disabled={isDisabled} // Optional: Disable button visually
+        >
+            <Image src={iconRef} height={32} width={32} alt="Shortcut" />
+            <span className="font-normal">{shortcutText}</span>
+        </button>
     );
 };
 
