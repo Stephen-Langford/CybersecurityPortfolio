@@ -1,7 +1,0 @@
-{
-    "json.schemas": [],
-
-    "files.associations": {
-        "*.css": "tailwindcss"
-    }
-}
