@@ -25,7 +25,8 @@ In **Reports** you will find examples of different security investigations and a
 ## Network Analysis
 In **Network Analysis** you will find examples of **packet sniffing tools** I have used.
 
-#### Please reach out to me with any questions you may have.
+## Contact Me
+Please reach out to me with any questions you may have.
 - Phone: 770-402-0461
 - Email: slangford1050@gmail.com
 - LinkedIn: https://www.linkedin.com/in/s-langford/
