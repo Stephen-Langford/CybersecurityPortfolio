@@ -1,12 +1,16 @@
 Thank you for stopping by.
 
+I made this site as a CV and as a fun way to recreate some of oldest memories on a compute. I designed the UI to emulate the era of Windows 98. I love the clean crisp icons that were used back then along with the clear distinct lines.
+
+You can navigate my site and the information much like a desktop computer. There are "shortcuts" that will pull open a page with a little more information about me.
+
 I have hosted my personal site made with Next.js on my personal Oracle Cloud Server. 
 
-You can visit the site at stephenlangford.dev
+You can visit the site at stephenlangford.dev or www.stephenlangford.dev
 
 The steps I have taken while hosting this site:
 
-After testing and building the project on my local machine using VS Code andNPM, I used scp with my private key to transfer the project to my Oracle server.
+After testing and building the project on my local machine using VS Code and NPM, I used scp with my private key to transfer the project to my Oracle server.
 
 Next I used npm to install and build the production only version.
 
