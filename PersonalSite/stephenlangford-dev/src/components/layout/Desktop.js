@@ -1,96 +1,43 @@
-'use client';
-import React from 'react';
-import Shortcut from '../ui/Shortcut';
-import Window from '../ui/Window';
-import { useState } from 'react';
+"use client";
+import React, { useState } from "react";
+import Shortcut from "../ui/Shortcut";
+import Window from "../ui/Window";
+import sections from "@/data/sections.js"
 
 const Desktop = () => {
-    const [displaySummary, setDisplaySummary] = useState(false);
-    const [displayTechSkills, setDisplayTechSkills] = useState(false);
-    const [displayExperience, setDisplayExperience] = useState(false);
-    const [displayProjects, setDisplayProjects] = useState(false);
-    const [displayEducation, setDisplayEducation] = useState(false);
-    const [displayContact, setDisplayContact] = useState(false);
-    
+    // Initialize state dynamically for all sections
+    const [openWindows, setOpenWindows] = useState({});
+
+    // Toggle function for windows
+    const toggleWindow = (section) => {
+        setOpenWindows((prev) => ({
+            ...prev,
+            [section]: !prev[section], // Toggle state dynamically
+        }));
+    };
+
+
 
     return (
         <div className="relative h-screen w-screen">
-            {/* Shortcut Container - Uses Grid for Alignment */}
+            {/* Shortcut Container */}
             <div className="shortcut-container grid grid-cols-1 gap-4 p-4 z-10 justify-end absolute right-0">
-                <Shortcut
-                    iconRef="/icons/notepad-5.png"
-                    shortcutText="Summary"
-                    onClick={() => setDisplaySummary(!displaySummary)}
-                />
-                <Shortcut
-                    iconRef="/icons/tech.png"
-                    shortcutText="Technical Skills"
-                    onClick={() => setDisplayTechSkills(!displayTechSkills)}
-                />
-                <Shortcut
-                    iconRef="/icons/computer-4.png"
-                    shortcutText="Work Experience"
-                    onClick={() => setDisplayExperience(!displayExperience)}
-                />
-                <Shortcut
-                    iconRef="/icons/directory_closed-4.png"
-                    shortcutText="Projects"
-                    onClick={() => setDisplayProjects(!displayProjects)}
-                />
-                <Shortcut
-                    iconRef="/icons/help_book_cool-4.png"
-                    shortcutText="Education"
-                    onClick={() => setDisplayEducation(!displayEducation)}
-                />
-                <Shortcut
-                    iconRef="/icons/envelope_closed-0.png"
-                    shortcutText="Contact Me"
-                    onClick={() => setDisplayContact(!displayContact)}
-                />
+                {sections.map(({ key, icon, text }) => (
+                    <Shortcut key={key} iconRef={icon} shortcutText={text} onClick={() => toggleWindow(key)} />
+                ))}
             </div>
 
+            {/* Window Container */}
             <div className="window-container absolute top-0 left-0 z-50 flex flex-row">
-                {displaySummary && (
-                    <Window
-                        section="summary"
-                        onClose={() => setDisplaySummary(false)}
-                        onHelp={() => setDisplayContact(true)}
-                    />
-                )}
-                {displayTechSkills && (
-                    <Window
-                        section="techSkills"
-                        onClose={() => setDisplayTechSkills(false)}
-                        onHelp={() => setDisplayContact(true)}
-                    />
-                )}
-                {displayExperience && (
-                    <Window
-                        section="experience"
-                        onClose={() => setDisplayExperience(false)}
-                        onHelp={() => setDisplayContact(true)}
-                    />
-                )}
-                {displayProjects && (
-                    <Window
-                        section="projects"
-                        onClose={() => setDisplayProjects(false)}
-                        onHelp={() => setDisplayContact(true)}
-                    />
-                )}
-                {displayEducation && (
-                    <Window
-                        section="education"
-                        onClose={() => setDisplayEducation(false)}
-                        onHelp={() => setDisplayContact(true)}
-                    />
-                )}
-                {displayContact && (
-                    <Window
-                        section="contact"
-                        onClose={() => setDisplayContact(false)}
-                        onHelp={() => setDisplayContact(true)}
-                    />
+                {sections.map(({ key }) =>
+                    openWindows[key] ? (
+                        <Window
+                            key={key}
+                            section={key}
+                            onClose={() => toggleWindow(key)}
+                            onHelp={() => toggleWindow("contact")}
+                        />
+                    ) : null
                 )}
             </div>
         </div>
