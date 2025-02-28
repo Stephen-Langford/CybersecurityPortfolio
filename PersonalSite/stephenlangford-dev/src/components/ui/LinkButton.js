@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
+import Link from "next/link";
 
-const MenuButton = ({
+const LinkButton = ({
   buttonImageSrc = "/icons/windows-4.png",
-  buttonText = "Start",
+  buttonText = "",
+  buttonLink = "",
 }) => {
   const [borderColorTL, setBorderColorTL] = useState("gray-300");
   const [borderColorRB, setBorderColorRB] = useState("gray-700");
@@ -21,9 +23,10 @@ const MenuButton = ({
   };
 
   return (
+    <Link href={buttonLink}>
       <button
         className={clsx(
-          "float-left w-18 m-0 px-1.5 py-0 bg-menu-gray border-2 text-black font-normal flex flex-row items-center transition duration-75 active:scale-95 active:translate-y-px",
+          " m-0.5 bg-menu-gray border-2 text-black font-normal flex flex-row items-center transition duration-75 active:scale-95 active:translate-y-px",
           {
             "border-t-gray-300 border-l-gray-300": borderColorTL === "gray-300",
             "border-t-gray-700 border-l-gray-700": borderColorTL === "gray-700",
@@ -41,9 +44,10 @@ const MenuButton = ({
           height={16}
           className="flex-shrink-0 object-contain w-[16px] h-[16px]"
         />
-        <span className="font-bold pl-1 pr-0.5">{buttonText}</span>
+        <span className="font-bold p-0.5 ">{buttonText}</span>
       </button>
+    </Link>
   );
 };
 
-export default MenuButton;
+export default LinkButton;

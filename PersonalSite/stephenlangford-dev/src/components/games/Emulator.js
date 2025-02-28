@@ -1,15 +1,12 @@
-"use client"
-
+"use client";
 import React from "react";
 
 const Emulator = () => {
   return (
-    <div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
+    <div className="w-full h-full">
       <iframe
         src="/games/MathBlaster/emulator.html"
-        width="100%"
-        height="100%"
-        style={{ border: "none" }}
+        className="w-full h-full border-none"
         allowFullScreen
       ></iframe>
     </div>
@@ -17,3 +14,4 @@ const Emulator = () => {
 };
 
 export default Emulator;
+

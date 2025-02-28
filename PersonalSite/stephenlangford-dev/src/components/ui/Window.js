@@ -13,7 +13,7 @@ const Window = ({ section, onClose, onHelp }) => {
             : 'h-[500px]';
 
     const contentsHeight =
-        section === 'education' || section === 'contact'
+        section === 'education' || section === 'contact' || section === 'mathblaster'
             ? 'h-full'
             : 'h-[400px]';
 

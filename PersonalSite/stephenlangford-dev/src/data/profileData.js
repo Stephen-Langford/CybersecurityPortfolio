@@ -137,7 +137,7 @@ const profileData = {
   mathblaster: {
     title: 'Math Blaster Emulator',
     instructionsText: 'Use the arrow keys. Z is the action button. Press the button below to launch the game. Have fun!',
-    linkHref: '/emulator',
+    buttonLink: '/emulator',
     buttonImageSrc: '/icons/MB4.jpg',
     buttonText: 'Launch!',
   },
