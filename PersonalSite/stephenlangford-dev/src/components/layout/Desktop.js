@@ -11,6 +11,7 @@ const Desktop = () => {
     const [displayProjects, setDisplayProjects] = useState(false);
     const [displayEducation, setDisplayEducation] = useState(false);
     const [displayContact, setDisplayContact] = useState(false);
+    
 
     return (
         <div className="relative h-screen w-screen">
