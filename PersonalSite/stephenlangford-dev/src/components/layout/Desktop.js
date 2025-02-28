@@ -16,8 +16,6 @@ const Desktop = () => {
         }));
     };
 
-
-
     return (
         <div className="relative h-screen w-screen">
             {/* Shortcut Container */}
